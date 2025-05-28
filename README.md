@@ -23,6 +23,7 @@ Programul simulează evoluția unei populații de celule pe o grilă 2D conform 
 - **Task 3:** Construiește un arbore binar de evoluții aplicând două seturi de reguli (original și alternativă).
 - **Task 4:** Caută cel mai lung lanț Hamiltonian în grafuri construite din celulele vii ale fiecărei generații.
 - **Task 5 (Bonus):** Permite operația de *undo*, refăcând starea inițială pe baza stivei de diferențe.
+  Mai multe detalii sunr disponibile in pdf-ul "PA-proiect-gameoflife.pdf".
 
 ---
 ## ▶️ Cum se utilizează
