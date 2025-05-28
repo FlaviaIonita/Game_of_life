@@ -503,47 +503,47 @@ int main(int argc, const char *argv[])
    
     if(T == 1 || T == 2 || T == 3 || T == 4)
     {
-    char **table = create_table(N, M);
-    for(i = 0; i < N; i++)
-        for(j = 0; j < M; j++)
-            fscanf(input_file, " %c", &table[i][j]);
-    //task1
-    if( T == 1 )
-    {
-        print_table(output_file, table, N, M);
-        fprintf(output_file, "\n");
-        while(K)
+        char **table = create_table(N, M);
+        for(i = 0; i < N; i++)
+            for(j = 0; j < M; j++)
+                fscanf(input_file, " %c", &table[i][j]);
+        //task1
+        if( T == 1 )
         {
-            game_of_life_task1(table,N,M);
-            print_table(output_file,table,N,M);
-            fprintf(output_file,"\n");
-            K--;
+            print_table(output_file, table, N, M);
+            fprintf(output_file, "\n");
+            while(K)
+            {
+                game_of_life_task1(table,N,M);
+                print_table(output_file,table,N,M);
+                fprintf(output_file,"\n");
+                K--;
+            }
         }
-    }
-    //task2
-    if( T == 2 )
-    {
-        generation *top = NULL;
-        for( i = 1; i <= K; i++ )
-            game_of_life_task2(table, N, M, &top, i);
-        print_generation(output_file, top);
-        free_generations(top);
-    }
-    //task3
-    if (T == 3)
-    {
-        Node* root = game_of_life_task3(table, N, M, 0, K);
-        preorder_write(output_file, root, N, M);
-        free_tree(root, N);
-    }
-    //task4
-    if (T == 4)
-     {
-         Node* root = game_of_life_task3(table, N, M, 0, K);
-         preorder_longest_path(root, N, M, output_file);
-         free_tree(root, N);
-     }
-     free_memory_table(table,N);
+        //task2
+        if( T == 2 )
+        {
+            generation *top = NULL;
+            for( i = 1; i <= K; i++ )
+                game_of_life_task2(table, N, M, &top, i);
+            print_generation(output_file, top);
+            free_generations(top);
+        }
+        //task3
+        if (T == 3)
+        {
+            Node* root = game_of_life_task3(table, N, M, 0, K);
+            preorder_write(output_file, root, N, M);
+            free_tree(root, N);
+        }
+        //task4
+        if (T == 4)
+         {
+             Node* root = game_of_life_task3(table, N, M, 0, K);
+             preorder_longest_path(root, N, M, output_file);
+             free_tree(root, N);
+         }
+         free_memory_table(table,N);
     }
     //task bonus
     if(T == 5)
