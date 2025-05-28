@@ -425,8 +425,8 @@ void find_longest_path(FILE* output_file, graph* g)
     int* visited = calloc(g->size, sizeof(int));
     cell_coord* current = malloc(g->size * sizeof(cell_coord));
     cell_coord* best = malloc(g->size * sizeof(cell_coord));
-    int max_len = -1;
-    for (int i = 0; i < g->size; i++)
+    int max_len = -1, i;
+    for (i = 0; i < g->size; i++)
         dfs(g, i, 0, visited, current, best, &max_len);
 
     if (max_len == -1)
@@ -434,7 +434,7 @@ void find_longest_path(FILE* output_file, graph* g)
     else
     {
         fprintf(output_file, "%d\n", max_len );
-        for (int i = 0; i <= max_len; i++)
+        for (i = 0; i <= max_len; i++)
             fprintf(output_file, "(%d,%d) ", best[i].l, best[i].c);
         fprintf(output_file, "\n");
     }
@@ -464,7 +464,7 @@ void undo_generations(char** table, int N, int M, generation* top)
         gens[cnt++] = top;
         top = top->next;
     }
-    for(i = 0; i < cnt; i++)
+    for(i = cnt - 1; i >= 0; i--)
     {
         cell* c = gens[i]->list_ch;
         while(c)
