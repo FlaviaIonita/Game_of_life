@@ -358,20 +358,21 @@ int neighbors(cell_coord x, cell_coord y)
 
 graph build_graph(char** table, int N, int M)
 {
+    int i,j;
     graph g;
     g.size = 0;
     int capacity = N * M;
     g.c_coord = (cell_coord*)malloc(capacity * sizeof(cell_coord));
-    for (int i = 0; i < N; i++)
-        for (int j = 0; j < M; j++)
+    for (i = 0; i < N; i++)
+        for (j = 0; j < M; j++)
             if (table[i][j] == ALIVE)
                 g.c_coord[g.size++] = (cell_coord){i,j};
     g.c_coord = realloc(g.c_coord, g.size * sizeof(cell_coord));
     g.a = (int**)malloc(g.size * sizeof(int*));
-    for (int i = 0; i < g.size; i++)
+    for (i = 0; i < g.size; i++)
     {
         g.a[i] = (int*)calloc(g.size, sizeof(int));
-        for (int j = 0; j < g.size; j++)
+        for (j = 0; j < g.size; j++)
             if (i != j && neighbors(g.c_coord[i], g.c_coord[j]))
                 g.a[i][j] = 1;
     }
