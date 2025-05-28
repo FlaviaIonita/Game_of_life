@@ -1,7 +1,6 @@
 # 🧬 Game of Life - Proiect în C
 
-Acest proiect implementează celebra simulare **Conway's Game of Life**, împărțită în mai multe **task-uri** cu funcționalități diverse, folosind structuri de date precum matrice, arbori binari și grafuri. Proiectul este scris în limbajul **C** și include opțional și un sistem de **undo**.
-
+Acest proiect implementează o versiune extinsă a „Game of Life” creat de John Conway, în cadrul cursului de *Proiectarea algoritmilor*. Este scris în C și integrează concepte avansate precum stive, liste înlănțuite, arbori binari și grafuri.
 ---
 
 ## 📁 Structura fișierelor
